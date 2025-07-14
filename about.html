@@ -1,0 +1,198 @@
+<html> 
+<head>
+  <title>About Me | Andrea</title>
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body>
+
+<header>
+    <nav class="sticky-nav">
+      <div class="logo-circle">
+        <img src="A.png" class="logo-img"/>
+      </div>
+      <ul>
+         <li><a href="home.html" class="nav-link">Home</a></li>
+         <li><a href="about.html" class="nav-link">About Me</a></li>
+         <li><a href="project.html" class="nav-link">Projects</a></li>
+         <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn"> Change Color</button>
+    </div>
+    </nav>
+  </header>
+
+ <section id="about" class="about">
+  <div class="about-box">
+    <center>
+      <h2> About Me </h2>
+      <p>I’m an IT student passionate about building stylish websites and creative interfaces.
+        I mix code and fashion to make digital look good!</p>
+    </center>
+
+    <div class="hobbies">
+      <h3>🌟 What I Love</h3>
+      <p>💻 Coding & Styling | 🎨 Drawing | 🎀 Aesthetic Layouts | ☁ Canva | 🧋 Tea + Chill</p>
+    </div>
+
+    <div class="skills">
+      <h3>👩‍💻 My Skills</h3>
+      <div class="skill-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Canva</span>
+        <span>UI/UX</span>
+      </div>
+    </div><br>
+
+    <h2 class="timeline-title">My Timeline ✨</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2021</h3>
+          <p>Started creating canva and artworks 🖥️</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2022</h3>
+          <p>Created my first html💖</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2023</h3>
+          <p>Learned different language 🎉</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2024 - Present</h3>
+          <p>Studying IT cybersecurity💅</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🎀 Flip Card Gallery -->
+    <div class="photo-flip-container">
+      <div class="photo-flip-card">
+        <div class="photo-flip-inner">
+          <div class="photo-flip-front">
+            <img src="gift.jpg" alt="Project 1">
+          </div>
+          <div class="photo-flip-back">
+            <div class="back-content">
+              <h4>OC Foundation Week</h4>
+              <p>A precious moment made by him</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-flip-card">
+        <div class="photo-flip-inner">
+          <div class="photo-flip-front">
+            <img src="great.jpg" alt="Project 2">
+          </div>
+          <div class="photo-flip-back">
+            <div class="back-content">
+              <h4>18th Birthday</h4>
+              <p>Eighteen & Everything in Between</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-flip-card">
+        <div class="photo-flip-inner">
+          <div class="photo-flip-front">
+            <img src="gradpic.png" alt="Project 3">
+          </div>
+          <div class="photo-flip-back">
+            <div class="back-content">
+              <h4>SHS Graduation</h4>
+              <p>Chapter Complete. Goodbye SHS, hello bigger dreams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-flip-card">
+        <div class="photo-flip-inner">
+          <div class="photo-flip-front">
+            <img src="greet.jpg" alt="Project 4">
+          </div>
+          <div class="photo-flip-back">
+            <div class="back-content">
+              <h4>18th Birthday</h4>
+              <p>A touch of red, a hint of gold, and a heart full of dreams</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-flip-card">
+        <div class="photo-flip-inner">
+          <div class="photo-flip-front">
+            <img src="gracious.jpg" alt="Project 5">
+          </div>
+          <div class="photo-flip-back">
+            <div class="back-content">
+              <h4>Soft Start</h4>
+              <p>Not trying to impress, just trying to feel okay again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-button-container">
+      <a href="resume.html" target="_blank" class="resume-button">View My Resume</a>
+    </div>
+  </div>
+</section>
+
+  <div id="preloader"></div>
+  
+  <footer>
+    <p>&copy; 2025 Andrea. All rights reserved.</p>
+  </footer>
+
+  <!-- change color javascript -->
+<script>
+  const toggleBtn = document.getElementById("themeToggle");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("feu-theme");
+
+    toggleBtn.textContent = document.body.classList.contains("feu-theme")
+      ? "PINK Theme"
+      : "FEU Theme";
+  });
+</script>
+
+<!-- preloader javascript -->
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+
+    setTimeout(() => {
+      preloader.classList.add("loader--hidden");
+
+      preloader.addEventListener("transitionend", () => {
+        preloader.remove();
+      });
+    }, 1500); // Adjust delay if needed
+  });
+</script>
+  
+</body>
+</html>
