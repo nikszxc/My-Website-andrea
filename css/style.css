@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #ffb6c1, #ffc0cb);
+  background-size: cover;
+  font-family: 'Cherry Bomb One', cursive;
+  overflow-x: hidden;
+  color: #000;
+}
+
+.glam-wrapper {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+header h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px #fff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.cutout {
+  padding: 0.3rem 0.7rem;
+  background-color: white;
+  color: #e91e63;
+  font-family: 'Rubik Scribble', cursive;
+  border: 2px dashed hotpink;
+  transform: rotate(-3deg);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.glam-word {
+  background: #ff69b4;
+  color: white;
+  border-radius: 15px;
+  padding: 0.2rem 1rem;
+  margin-left: 10px;
+  font-size: 1.5rem;
+  font-family: 'Cherry Bomb One', cursive;
+  box-shadow: 0 0 10px white;
+}
+
+.stickers {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.sticker {
+  width: 80px;
+  position: absolute;
+  animation: floaty 4s ease-in-out infinite;
+}
+
+.bratz { top: 50px; left: 20px; }
+.guitar { top: 100px; right: 40px; }
+.butterfly { top: 200px; left: 80px; }
+.skates { bottom: 40px; right: 120px; }
+.heart { top: 150px; right: 200px; }
+
+footer {
+  margin-top: 250px;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+  border-top: 2px dashed pink;
+}
+
+/* Float Animation */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}

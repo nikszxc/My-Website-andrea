@@ -1,0 +1,118 @@
+ body {
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(135deg, #2b1055, #7597de);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*body of container*/
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px 40px;
+}
+
+.form-box { 
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: white;/*sdg color*/
+}
+/* Name, email, age */
+.input-icon {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+.input-icon input {
+  background: transparent;
+  border: none;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}
+/*color name, age, email */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* gender */
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: black;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Checkboxes */
+fieldset {
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-group label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #9b59b6, #3498db);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #8e44ad, #2980b9);
+}
+.back-floating {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1000;
+  background: #FDB813;
+  color: #004225;
+  padding: 12px 22px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-floating:hover {
+  background: #004225;
+  color: #FDB813;
+  transform: scale(1.05);
+}

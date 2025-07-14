@@ -1,0 +1,284 @@
+/* Base layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #e8f5e9, #fef9e7);
+  display: flex;
+  color: #004225;
+}
+
+/* ID Layout */
+.id-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background: #004225;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  z-index: 999;
+}
+
+.lace {
+  width: 4px;
+  height: 120px;
+  background: #FDB813;
+  border-radius: 2px;
+  position: relative;
+}
+
+.lace::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -6px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+
+.swing-wrapper {
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes swing {
+  0% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
+}
+
+.id-card {
+  width: 220px;
+  height: 300px;
+  perspective: 1000px;
+  margin-top: 10px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+#flip:checked ~ .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: #fff;
+  color: #004225;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border: 3px solid #FDB813;
+}
+
+.card-front img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid #006241;
+}
+
+.card-front h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  font-size: 14px;
+  background: #f4f4f4;
+}
+
+.card-back h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.card-back ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card-back li {
+  margin-bottom: 6px;
+}
+
+/* Resume Website Layout */
+.container {
+  margin-left: 300px;
+  margin-right: 340px;
+  padding: 30px;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  margin-bottom: 30px;
+  color: #006241;
+}
+
+header h1 {
+  font-size: 32px;
+}
+
+header p {
+  font-size: 18px;
+  color: #004225;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #006241;
+  border-left: 5px solid #FDB813;
+  padding-left: 10px;
+}
+
+.skills span {
+  background: #006241;
+  color: white;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #004225;
+  color: white;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Right Panel Container - FEU Theme */
+.right-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  background: #004225; /* FEU dark green */
+  color: white;
+  padding: 40px 20px;
+  overflow-y: auto;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-left: 5px solid #FDB813; /* FEU gold */
+}
+
+.right-panel h2 {
+  font-size: 22px;
+  color: #FDB813;
+  margin-bottom: 10px;
+  border-left: 4px solid #FDB813;
+  padding-left: 10px;
+}
+
+.experience ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.experience li {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #f0f0f0;
+}
+
+.portfolio-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.portfolio-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  border: 3px solid #FDB813;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
+  }
+
+  .id-container {
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    background: #004225;
+  }
+
+  .right-panel {
+    position: relative;
+    width: 100%;
+    border-left: none;
+    border-top: 4px solid #FDB813;
+    margin-top: 20px;
+  }
+}
+.back-floating {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1000;
+  background: #FDB813;
+  color: #004225;
+  padding: 12px 22px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-floating:hover {
+  background: #004225;
+  color: #FDB813;
+  transform: scale(1.05);
+}
