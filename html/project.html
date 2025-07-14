@@ -1,0 +1,138 @@
+<html>
+<head>
+  <title>Projects | Andrea </title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+
+<header>
+    <nav class="sticky-nav">
+      <div class="logo-circle">
+        <img src="A.png" class="logo-img"/>
+      </div>
+      <ul>
+         <li><a href="home.html" class="nav-link">Home</a></li>
+         <li><a href="about.html" class="nav-link">About Me</a></li>
+         <li><a href="project.html" class="nav-link">Projects</a></li>
+         <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn"> Change Color</button>
+    </div>
+    </nav>
+  </header>
+
+<section id="project" class="project-section">
+  <div class="section-header">
+    <div class="title-box shimmer">
+    <h1 class="project-title">My Lab Activities</h1>
+    <p class="section-subtitle">These are some of my hands-on coding activities from class.</p>
+  </div></div>
+
+  <div class="card-container">
+    <div class="card">
+      <img src="project1.png" alt="Basic Website Preview" class="card-img" />
+      <h3>Basic Website Navigation</h3>
+      <p>A simple website with a link to a second page.</p>
+      <div class="lab-button-container">
+        <a href="web 1.html" class="lab-button" target="_blank">View Activity</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="periodic-table.png" alt="Periodic Table Preview" class="card-img" />
+      <h3>Periodic Table</h3>
+      <p>A colorful periodic table with interactive hover effects.</p>
+      <div class="lab-button-container">
+        <a href="periodic table.html" class="lab-button" target="_blank">View Activity</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="registration.png" alt="Form Preview" class="card-img" />
+      <h3>Registration Form</h3>
+      <p>A stylish form built with clean layout and inputs.</p>
+      <div class="lab-button-container">
+        <a href="registration.html" class="lab-button" target="_blank">View Activity</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="SDGPORTAL.png" alt="SDG Website Preview" class="card-img" />
+      <h3>SDG Website</h3>
+      <p>A multi-section site raising awareness about global goals.</p>
+      <div class="lab-button-container">
+        <a href="SDG webpage.html" class="lab-button" target="_blank">View Activity</a>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="preloader"></div>
+
+<footer>
+  <p>&copy; 2025 Andrea. All rights reserved.</p>
+</footer>
+
+<script>
+  // Tilt effect on hover
+  const card = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const { left, top, width, height } = card.getBoundingClientRect();
+      const x = e.clientX - left;
+      const y = e.clientY - top;
+      const rotateX = ((y / height) - 0.5) * 10;
+      const rotateY = ((x / width) - 0.5) * -10;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  });
+
+  // Scroll reveal
+  const revealCard = () => {
+    cards.forEach(card => {
+      const top = card.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        card.classList.add('reveal');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealCards);
+  window.addEventListener('load', revealCards);
+</script>
+
+<!-- change color javascript -->
+<script>
+  const toggleBtn = document.getElementById("themeToggle");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("feu-theme");
+
+    toggleBtn.textContent = document.body.classList.contains("feu-theme")
+      ? "PINK Theme"
+      : "FEU Theme";
+  });
+</script>
+
+<!-- preloader javascript -->
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+
+    setTimeout(() => {
+      preloader.classList.add("loader--hidden");
+
+      preloader.addEventListener("transitionend", () => {
+        preloader.remove();
+      });
+    }, 1500); // Adjust delay if needed
+  });
+</script>
+
+</body>
+</html>

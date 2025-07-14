@@ -1,0 +1,223 @@
+<html>
+
+<head>
+  <title>Contact | Andrea</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+
+ <header>
+    <nav class="sticky-nav">
+      <div class="logo-circle">
+        <img src="A.png" class="logo-img"/>
+      </div>
+      <ul>
+         <li><a href="home.html" class="nav-link">Home</a></li>
+         <li><a href="about.html" class="nav-link">About Me</a></li>
+         <li><a href="project.html" class="nav-link">Projects</a></li>
+         <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn"> Change Color</button>
+    </div>
+    </nav>
+  </header>
+
+  <section id="contact" class="contact fullpage">
+    <div class="contact-box">
+      <h2>Contact Me</h2>
+      <form id="contactForm1" onsubmit="return validateContactForm()">
+        <input type="text" name="name" class="contact-field" placeholder="Your Name" required />
+        <input type="email" name="email" class="contact-field" placeholder="Your Email" required />
+        <textarea name="message" class="contact-field" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="feedback"></p>
+      </form>
+    </div>
+  </section>
+
+  <div id="preloader"></div>
+  <div class="floating-hearts-container"></div>
+
+  <footer>
+    <p>&copy; 2025 Andrea. All rights reserved.</p>
+  </footer>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <p>Do you want to send this message? 💌</p>
+      <div class="modal-buttons">
+        <button onclick="confirmSend(true)">Yes</button>
+        <button onclick="confirmSend(false)">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <p>Thank you! Your message has been sent ✨</p>
+      <div class="modal-buttons">
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cancel Modal -->
+  <div id="cancelModal" class="modal">
+    <div class="modal-content">
+      <p>Message not sent. You cancelled the action 🚫</p>
+      <div class="modal-buttons">
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function validateContactForm() {
+      const form = document.getElementById('contactForm1');
+      const fields = form.querySelectorAll('.contact-field');
+      const feedback = document.getElementById("feedback");
+      const confirmModal = document.getElementById("confirmModal");
+//loop
+      feedback.innerText = "";
+      feedback.style.color = "red";
+      let allFilled = true;
+
+      fields.forEach(field => {
+        field.classList.remove("error");
+        if (field.value.trim() === "") {
+          field.classList.add("error");
+          allFilled = false;
+        }
+      });
+
+      if (!allFilled) {
+        feedback.innerText = "Please fill out all fields 💔";
+        return false;
+      } else {
+        confirmModal.style.display = "flex";
+        return false;
+      }
+    }
+
+    function confirmSend(choice) {
+      const successModal = document.getElementById("successModal");
+      const cancelModal = document.getElementById("cancelModal");
+      const form = document.getElementById("contactForm1");
+      const feedback = document.getElementById("feedback");
+
+      if (choice) {
+        successModal.style.display = "flex";
+        form.reset();
+        feedback.innerText = "Your message has been sent! 💖";
+        feedback.style.color = "fuchsia";
+      } else {
+        cancelModal.style.display = "flex";
+        feedback.innerText = "Sending was cancelled.";
+        feedback.style.color = "red";
+      }
+
+      document.getElementById("confirmModal").style.display = "none";
+    }
+
+    function closeModal() {
+      document.getElementById("successModal").style.display = "none";
+      document.getElementById("cancelModal").style.display = "none";
+      document.getElementById("confirmModal").style.display = "none";
+    }
+  </script>
+
+  <script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxVX28DgpEfKw-9l067LkBQzj4JM8-4SegukUd9LOxNMPqS9eZUmGpjfofS9I4Y3JjN/exec";
+  const form = document.getElementById("contactForm1");
+  const responseMsg = document.getElementById("feedback");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    responseMsg.textContent = "Sending...";
+
+    const formData = new FormData(form);
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: new URLSearchParams(formData)
+    })
+    .then(res => {
+      if (res.ok) {
+        document.getElementById("successModal").style.display = "flex";
+        responseMsg.textContent = "";
+        form.reset();
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    })
+    .catch(error => {
+      document.getElementById("cancelModal").style.display = "flex";
+      responseMsg.textContent = "Something went wrong.";
+      console.error("Error!", error.message);
+    });
+  });
+</script>
+
+<!-- change color javascript -->
+<script>
+  const toggleBtn = document.getElementById("themeToggle");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("feu-theme");
+
+    toggleBtn.textContent = document.body.classList.contains("feu-theme")
+      ? "PINK Theme"
+      : "FEU Theme";
+  });
+</script>
+
+<!-- preloader javascript -->
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+
+    setTimeout(() => {
+      preloader.classList.add("loader--hidden");
+
+      preloader.addEventListener("transitionend", () => {
+        preloader.remove();
+      });
+    }, 1500); // Adjust delay if needed
+  });
+</script>
+
+<!-- phone javascript -->
+<script>
+  const container = document.querySelector('.floating-hearts-container');
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '📞';
+    
+    // Random horizontal position
+    heart.style.left = Math.random() * 100 + 'vw';
+    // Random size
+    heart.style.fontSize = (2 + Math.random() * 2) + 'rem';
+    
+    container.appendChild(heart);
+
+    // Remove heart after animation ends
+    heart.addEventListener('animationend', () => {
+      heart.remove();
+    });
+  }
+
+  // Create a heart every 500ms
+  setInterval(createHeart, 500);
+</script>
+
+
+</body>
+</html>
+
+
+    
